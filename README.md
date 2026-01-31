@@ -23,10 +23,38 @@ Program to implement univariate Linear Regression to fit a straight line using l
 Developed by: 
 RegisterNumber:  
 */
+import numpy as np
+from sklearn.linear_model import LinearRegression
+import matplotlib.pyplot as plt
+
+# Sample data (X = input, y = output)
+X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)
+y = np.array([2, 4, 5, 4, 5])
+
+# Create and train the model
+model = LinearRegression()
+model.fit(X, y)
+
+# Make predictions
+y_pred = model.predict(X)
+
+# Print results
+print("Slope (Coefficient):", model.coef_[0])
+print("Intercept:", model.intercept_)
+
+# Plot the data and regression line
+plt.scatter(X, y, color='blue', label='Actual Data')
+plt.plot(X, y_pred, color='red', label='Regression Line')
+plt.xlabel("X")
+plt.ylabel("y")
+plt.legend()
+
 ```
 
 ## Output:
 ![best fit line](sam.png)
+<img width="936" height="584" alt="image" src="https://github.com/user-attachments/assets/215023e1-2e1f-4153-ab78-f7210f0d09ef" />
+
 
 
 ## Result:
